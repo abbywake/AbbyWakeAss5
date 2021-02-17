@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IQueryable<Books>
+<head>
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+</head>
+<div class="text-center">
+    <h1>Amazon Books</h1>
+    
+</div>
+
+<!--using a bootstrap table because the other one is incredibly ugly. Putting all the information in through razor-->
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Author First Name</th>
+        <th>Middle Initial</th>
+        <th>Author Last Name</th>
+        <th>Publisher</th>
+        <th>ISBN</th>
+        <th>Classification</th>
+        <th>Category</th>
+        <th>Price</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+<tr>
+    <td data-th="Title">@x.Title</td>
+    <td data-th="Author First Name">@x.AuthorFirst</td>
+    <td data-th="Middle Initial">@x.AuthorMiddle</td>
+    <td data-th="Author Last Name">@x.AuthorLast</td>
+    <td data-th="Publisher">@x.Publisher</td>
+    <td data-th="ISBN">@x.ISBN</td>
+    <td data-th="Classification">@x.Classification</td>
+    <td data-th="Category">@x.Category</td>
+    <td data-th="Price">$@x.Price</td>
+</tr>
+    }
+</table>
+
