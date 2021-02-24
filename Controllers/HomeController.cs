@@ -1,4 +1,5 @@
 ﻿using AbbyWakeAss5.Models;
+using AbbyWakeAss5.Models.viewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -15,15 +16,39 @@ namespace AbbyWakeAss5.Controllers
 
         private IBookRepository _repository;
 
+        public int PageSize = 5;
+
         public HomeController(ILogger<HomeController> logger, IBookRepository repository)
         {
             _logger = logger;
             _repository = repository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            return View(_repository.Books);
+            
+            //return all of this information
+            return View(
+                new ProjectListViewModel
+                {
+                    Books = _repository.Books
+                    //ordering by the Books
+                    .OrderBy(b => b.BookID)
+                    //how it will be doing it 
+                    .Skip((page - 1) * PageSize)
+                    //how many it will return 
+                    .Take(PageSize),
+
+                    PagingInfo = new PagingInfo
+                    {
+                        CurrentPage = page,
+                        ItemsPerPage = PageSize,
+                        TotalNumItems = _repository.Books.Count()
+
+                    }
+
+                }) ;
+                           
         }
 
         public IActionResult Privacy()

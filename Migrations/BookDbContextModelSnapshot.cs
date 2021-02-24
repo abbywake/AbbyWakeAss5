@@ -47,6 +47,9 @@ namespace AbbyWakeAss5.Migrations
                     b.Property<int>("ISBN")
                         .HasColumnType("int");
 
+                    b.Property<int>("PageNum")
+                        .HasColumnType("int");
+
                     b.Property<float>("Price")
                         .HasColumnType("real");
 

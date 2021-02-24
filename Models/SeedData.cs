@@ -25,6 +25,9 @@ namespace AbbyWakeAss5.Models
                 context.Books.AddRange(
                     //can delete because it's pulling from the database, but this is where we added all of the information for the books and publishers and what not 
                 
+
+
+                    //delete database then re-add through dotnet ef migrations add databaseName
                 new Books
                 {
                    
@@ -35,7 +38,8 @@ namespace AbbyWakeAss5.Models
                     ISBN = 978-0451419439,
                     Classification = "Fiction",
                     Category = "Classic",
-                    Price = 9.95f
+                    Price = 9.95f, 
+                    PageNum = 1488
                 }, 
 
                 new Books
@@ -49,7 +53,8 @@ namespace AbbyWakeAss5.Models
                     ISBN = 978-0743270755,
                     Classification = "Non-Fiction",
                     Category = "Biography",
-                    Price = 14.58f
+                    Price = 14.58f,
+                    PageNum = 944
 
                 },
 
@@ -63,7 +68,8 @@ namespace AbbyWakeAss5.Models
                      ISBN = 978-0553384611,
                      Classification = "Non-Fiction",
                      Category = "Biography",
-                     Price = 21.54f
+                     Price = 21.54f,
+                     PageNum = 832
 
                  },
 
@@ -77,7 +83,8 @@ namespace AbbyWakeAss5.Models
                      ISBN = 978-0812981254,
                      Classification = "Non-Fiction",
                      Category = "Biography",
-                     Price = 11.61f
+                     Price = 11.61f,
+                     PageNum = 864
                  },
 
                   new Books
@@ -89,7 +96,8 @@ namespace AbbyWakeAss5.Models
                       ISBN = 978 - 0812974492,
                       Classification = "Non-Fiction",
                       Category = "Historical",
-                      Price = 13.33f
+                      Price = 13.33f,
+                      PageNum = 528
                   },
 
                    new Books
@@ -101,7 +109,8 @@ namespace AbbyWakeAss5.Models
                        ISBN = 978 - 0804171281,
                        Classification = "Fiction",
                        Category = "Historical Fiction",
-                       Price = 15.95f
+                       Price = 15.95f,
+                       PageNum = 288
                    },
                     new Books
                     {
@@ -112,7 +121,8 @@ namespace AbbyWakeAss5.Models
                         ISBN = 978 - 1455586691,
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 14.99f
+                        Price = 14.99f,
+                        PageNum = 304
 
                     },
                       new Books
@@ -124,7 +134,8 @@ namespace AbbyWakeAss5.Models
                           ISBN = 978 - 1455523023,
                           Classification = "Non-Fiction",
                           Category = "Self-Help",
-                          Price = 21.66f
+                          Price = 21.66f,
+                          PageNum = 240
 
                       },
                       new Books
@@ -136,7 +147,8 @@ namespace AbbyWakeAss5.Models
                           ISBN = 978 - 1591847984,
                           Classification = "Non-Fiction",
                           Category = "Business",
-                          Price = 29.16f
+                          Price = 29.16f,
+                          PageNum = 400
 
                       },
                       new Books
@@ -148,9 +160,50 @@ namespace AbbyWakeAss5.Models
                             ISBN = 978 - 0553393613,
                             Classification = "Fiction",
                             Category = "Thrillers",
-                            Price = 15.03f
+                            Price = 15.03f,
+                            PageNum = 642
 
-                      }
+                      },
+                      //my own added books 
+                       new Books
+                       {
+                           Title = "The Help",
+                           AuthorFirst = "Kathryne",
+                           AuthorLast = "Socket",
+                           Publisher = "Penguin Books",
+                           ISBN = 978 - 0143144182,
+                           Classification = "Drama",
+                           Category = "Romance",
+                           Price = 15.39f,
+                           PageNum = 466
+
+                       },
+                       new Books
+                       {
+                           Title = "Thinner Leaner Stronger",
+                           AuthorFirst = "Michael",
+                           AuthorLast = "Matthews",
+                           Publisher = "Ingram",
+                           ISBN = 978 - 1479291281,
+                           Classification = "Diet Book",
+                           Category = "Self-Help",
+                           Price = 16.99f,
+                           PageNum = 643
+
+                       },
+                        new Books
+                        {
+                            Title = "The Girl With Seven Names",
+                            AuthorFirst = "Hyeon-Seo",
+                            AuthorLast = "Lee",
+                            Publisher = "HarperCollins UK",
+                            ISBN = 978 - 0008338336,
+                            Classification = "Autobiography",
+                            Category = "Biography",
+                            Price = 16.99f,
+                            PageNum = 342
+
+                        }
 
 
 

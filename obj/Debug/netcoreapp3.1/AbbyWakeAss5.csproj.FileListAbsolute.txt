@@ -77,3 +77,4 @@ C:\Users\abbyw\source\repos\AbbyWakeAss5\bin\Debug\netcoreapp3.1\runtimes\win-x8
 C:\Users\abbyw\source\repos\AbbyWakeAss5\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\abbyw\source\repos\AbbyWakeAss5\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\abbyw\source\repos\AbbyWakeAss5\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\abbyw\source\repos\AbbyWakeAss5\bin\Debug\netcoreapp3.1\package-lock.json

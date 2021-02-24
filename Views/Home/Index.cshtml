@@ -1,14 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model IQueryable<Books>
+
+@model ProjectListViewModel
+
 <head>
+    <link runat="server" rel="shortcut icon" href="images/book.png" type="image/x-icon" />
     <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link href="~/css/cssSheet.scss" rel="stylesheet/scss" type="text/css" />
+    
+
+
 
 </head>
 <div class="text-center">
     <h1>Amazon Books</h1>
-    
+
 </div>
 
 <!--using a bootstrap table because the other one is incredibly ugly. Putting all the information in through razor-->
@@ -24,21 +31,47 @@
         <th>Classification</th>
         <th>Category</th>
         <th>Price</th>
+        <th>PageNum</th>
     </tr>
 
-    @foreach (var x in Model)
+    @foreach (var x in Model.Books)
     {
-<tr>
-    <td data-th="Title">@x.Title</td>
-    <td data-th="Author First Name">@x.AuthorFirst</td>
-    <td data-th="Middle Initial">@x.AuthorMiddle</td>
-    <td data-th="Author Last Name">@x.AuthorLast</td>
-    <td data-th="Publisher">@x.Publisher</td>
-    <td data-th="ISBN">@x.ISBN</td>
-    <td data-th="Classification">@x.Classification</td>
-    <td data-th="Category">@x.Category</td>
-    <td data-th="Price">$@x.Price</td>
-</tr>
+        <tr>
+            <td data-th="Title">@x.Title</td>
+            <td data-th="Author First Name">@x.AuthorFirst</td>
+            <td data-th="Middle Initial">@x.AuthorMiddle</td>
+            <td data-th="Author Last Name">@x.AuthorLast</td>
+            <td data-th="Publisher">@x.Publisher</td>
+            <td data-th="ISBN">@x.ISBN</td>
+            <td data-th="Classification">@x.Classification</td>
+            <td data-th="Category">@x.Category</td>
+            <td data-th="Price">$@x.Price</td>
+            <td data-th="PageNum">@x.PageNum</td>
+
+        </tr>
     }
+
+    @*@foreach (var x in Model.Books)
+        {
+            <p>@x.Title</p>
+            <p>@x.AuthorFirst</p>
+            <p>@x.AuthorLast</p>
+        }*@
+
 </table>
+<br />
+
+<!--pagination baby, the real deal-->
+<!--One of the bootstraps that we had to do
+    the other bootstraps are the thing that was given and the other is the table. I didn't like the way that it was presented on the video that he made, 
+    so I kept it in a table because I thought it looked nicer. -->
+
+<div class="btn btn btn-link">
+    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+         page-class-normal="button-outline-dark"
+         page-class-selected="btn-primary"
+         class="btn-group pull-right m-1"></div>
+</div>
+
+
 
