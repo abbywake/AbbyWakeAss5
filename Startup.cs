@@ -57,14 +57,27 @@ namespace AbbyWakeAss5
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("catPage",
+                    "Books/{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("page",
+                    "Books/P{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("category", 
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page=1 });
+
                 endpoints.MapControllerRoute(
                     "pagination",
                     "P{page}",
                     new { Controller = "Home", action = "Index" });
-                //name: "default",
-                //pattern: "{controller=Home}/{action=Index}/{id?}");
+                
                 endpoints.MapDefaultControllerRoute();
             });
+
+
 
             SeedData.EnsurePopulated(app);
 

@@ -24,30 +24,34 @@ namespace AbbyWakeAss5.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category ,int page = 1)
         {
-            
+
             //return all of this information
             return View(
                 new ProjectListViewModel
                 {
                     Books = _repository.Books
+                    .Where(b => category == null || b.Category == category)
                     //ordering by the Books
                     .OrderBy(b => b.BookID)
                     //how it will be doing it 
                     .Skip((page - 1) * PageSize)
                     //how many it will return 
                     .Take(PageSize),
+                    
 
                     PagingInfo = new PagingInfo
                     {
                         CurrentPage = page,
                         ItemsPerPage = PageSize,
-                        TotalNumItems = _repository.Books.Count()
+                        TotalNumItems = category == null ? _repository.Books.Count() :
+                        _repository.Books.Where(x => x.Category == category).Count()
 
-                    }
+                    },
+                    CurrentCategory = category
 
-                }) ;
+                }); ;
                            
         }
 

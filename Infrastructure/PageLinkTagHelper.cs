@@ -28,7 +28,10 @@ namespace AbbyWakeAss5.Infrastructure
         public PagingInfo PageModel { get; set; }
 
         public string PageAction { get; set; }
-        //add these to match with the html/bootstrap on index.cshtml
+
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
+                //add these to match with the html/bootstrap on index.cshtml
         public bool PageClassesEnabled { get; set; } = false;
 
         public string PageClass { get; set; }
@@ -46,9 +49,13 @@ namespace AbbyWakeAss5.Infrastructure
 
             for(int i = 1; i <= PageModel.TotalPages; i++)
             {
+                PageUrlValues["page"] = i;
+
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+                //PageUrlValues stores how many are in there from the filtered
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
                 //this makes sure that it can be added based on the html/built in bootstrap for the pagination
+
                 if (PageClassesEnabled)
                 {
                     tag.AddCssClass(PageClass);

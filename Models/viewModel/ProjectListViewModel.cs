@@ -11,6 +11,8 @@ namespace AbbyWakeAss5.Models.viewModel
 
         public PagingInfo PagingInfo { get; set; }
 
+        public string CurrentCategory {get; set;}
+
 
     }
 }

@@ -8,7 +8,7 @@
     <link runat="server" rel="shortcut icon" href="images/book.png" type="image/x-icon" />
     <link href="~/css/StyleSheet.css" rel="stylesheet" />
     <link href="~/css/cssSheet.scss" rel="stylesheet/scss" type="text/css" />
-    
+    <link href="~/css/flexbox.css" rel="stylesheet" />
 
 
 
@@ -17,61 +17,68 @@
     <h1>Amazon Books</h1>
 
 </div>
-
+<div class="flex">
 <!--using a bootstrap table because the other one is incredibly ugly. Putting all the information in through razor-->
+    <div>
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Author First Name</th>
+                <th>Middle Initial</th>
+                <th>Author Last Name</th>
+                <th>Publisher</th>
+                <th>ISBN</th>
+                <th>Classification</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>PageNum</th>
+            </tr>
 
-<table class="table">
-    <tr>
-        <th>Title</th>
-        <th>Author First Name</th>
-        <th>Middle Initial</th>
-        <th>Author Last Name</th>
-        <th>Publisher</th>
-        <th>ISBN</th>
-        <th>Classification</th>
-        <th>Category</th>
-        <th>Price</th>
-        <th>PageNum</th>
-    </tr>
+            @foreach (var x in Model.Books)
+            {
 
-    @foreach (var x in Model.Books)
-    {
-        <tr>
-            <td data-th="Title">@x.Title</td>
-            <td data-th="Author First Name">@x.AuthorFirst</td>
-            <td data-th="Middle Initial">@x.AuthorMiddle</td>
-            <td data-th="Author Last Name">@x.AuthorLast</td>
-            <td data-th="Publisher">@x.Publisher</td>
-            <td data-th="ISBN">@x.ISBN</td>
-            <td data-th="Classification">@x.Classification</td>
-            <td data-th="Category">@x.Category</td>
-            <td data-th="Price">$@x.Price</td>
-            <td data-th="PageNum">@x.PageNum</td>
+                <tr>
+                    <td data-th="Title">@x.Title</td>
+                    <td data-th="Author First Name">@x.AuthorFirst</td>
+                    <td data-th="Middle Initial">@x.AuthorMiddle</td>
+                    <td data-th="Author Last Name">@x.AuthorLast</td>
+                    <td data-th="Publisher">@x.Publisher</td>
+                    <td data-th="ISBN">@x.ISBN</td>
+                    <td data-th="Classification">@x.Classification</td>
+                    <td data-th="Category">@x.Category</td>
+                    <td data-th="Price">$@x.Price</td>
+                    <td data-th="PageNum">@x.PageNum</td>
+                </tr>
+            }
 
-        </tr>
-    }
 
-    @*@foreach (var x in Model.Books)
-        {
-            <p>@x.Title</p>
-            <p>@x.AuthorFirst</p>
-            <p>@x.AuthorLast</p>
-        }*@
+        </table>
 
-</table>
+
+        <div class="btn btn btn-link">
+            <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+                 page-class-normal="button-outline-dark"
+                 page-class-selected="btn-primary"
+                 page-url-category="@Model.CurrentCategory"
+                 class="btn-group pull-right m-1"></div>
+        </div>
+
+        <div>
+            <vc:navigation-menu />
+        </div>
+        <patrial name="ProjectSummary"></patrial>
+    </div>
+</div>
 <br />
+
+
 
 <!--pagination baby, the real deal-->
 <!--One of the bootstraps that we had to do
-    the other bootstraps are the thing that was given and the other is the table. I didn't like the way that it was presented on the video that he made, 
+    the other bootstraps are the thing that was given and the other is the table. I didn't like the way that it was presented on the video that he made,
     so I kept it in a table because I thought it looked nicer. -->
 
-<div class="btn btn btn-link">
-    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
-         page-class-normal="button-outline-dark"
-         page-class-selected="btn-primary"
-         class="btn-group pull-right m-1"></div>
-</div>
+
 
 
 
