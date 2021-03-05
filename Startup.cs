@@ -29,10 +29,12 @@ namespace AbbyWakeAss5
 
             services.AddDbContext<BookDbContext>(options =>
            {
-               options.UseSqlServer(Configuration["ConnectionStrings:AmazonBookConnection"]);
+               options.UseSqlite(Configuration["ConnectionStrings:AmazonBookConnection"]);
            });
 
             services.AddScoped<IBookRepository, EFBookRepository>();
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +77,8 @@ namespace AbbyWakeAss5
                     new { Controller = "Home", action = "Index" });
                 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
 
 
