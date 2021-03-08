@@ -1,4 +1,4 @@
-﻿@model Books
+﻿@model Books 
 <!--
 I know the video showed how to do it with the model, but I kept having bugs, but the bugs were my fault because I spelled partial wrong,
     but I fixed that but just
@@ -18,20 +18,17 @@ I know the video showed how to do it with the model, but I kept having bugs, but
     <td data-th="Category">@Model.Category</td>
     <td data-th="Price">$@Model.Price</td>
     <td data-th="PageNum">@Model.PageNum</td>
-    <td data-th="Cart">
-    </td>
 </tr>
 
 
-<form id="@Model.BookID" asp-page="/Cart" method="post">
+@*<form id="@Model.BookID" asp-page="/Cart" method="post">
     <input type="hidden" asp-for="BookID" />
     <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-    <span>
-        @Model.Category
-        <button type="submit" class="btn">Add to Cart</button>
-        
-    </span>
-</form>
+    <span class="card-text p-1">
+        @Model.Title
+    <button type="submit" class="btn-success btn-sm pull-right" style="float:right"></button>
+    Order
+</span>
+</form>*@
 
-@*class="btn-success btn-sm pull-right" style="float:right"*@
 

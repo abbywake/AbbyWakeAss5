@@ -33,8 +33,15 @@ using AbbyWakeAss5.Models.viewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\abbyw\source\repos\AbbyWakeAss5\Views\_ViewImports.cshtml"
+using AbbyWakeAss5.Infrastructure;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ea4703c258943e8104da936d74fb6dc66f5019c9", @"/Views/Shared/Components/NavigationMenu/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b13f4aa9a66638a41951f853602787e416af3a8d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6406d01d59bf24db07bf0fdbd29a99cdcbab9b1", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_NavigationMenu_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<string>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-block btn-outline-secondary"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -66,7 +73,7 @@ using AbbyWakeAss5.Models.viewModel;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea4703c258943e8104da936d74fb6dc66f5019c94919", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea4703c258943e8104da936d74fb6dc66f5019c95102", async() => {
                 WriteLiteral("Home");
             }
             );
@@ -100,7 +107,7 @@ using AbbyWakeAss5.Models.viewModel;
 #line hidden
 #nullable disable
             WriteLiteral("    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea4703c258943e8104da936d74fb6dc66f5019c97137", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea4703c258943e8104da936d74fb6dc66f5019c97320", async() => {
 #nullable restore
 #line 9 "C:\Users\abbyw\source\repos\AbbyWakeAss5\Views\Shared\Components\NavigationMenu\Default.cshtml"
                                                                                              Write(category);

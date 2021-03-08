@@ -35,6 +35,10 @@ namespace AbbyWakeAss5
             services.AddScoped<IBookRepository, EFBookRepository>();
 
             services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +56,8 @@ namespace AbbyWakeAss5
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 

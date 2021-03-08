@@ -32,27 +32,18 @@
                 <th>Category</th>
                 <th>Price</th>
                 <th>Page Number</th>
+                <th>Cart</th>
             </tr>
 
-            @foreach (var x in Model.Books)
-            {
+            
 
-                <tr>
-                    <td data-th="Title">@x.Title</td>
-                    <td data-th="Author First Name">@x.AuthorFirst</td>
-                    <td data-th="Middle Initial">@x.AuthorMiddle</td>
-                    <td data-th="Author Last Name">@x.AuthorLast</td>
-                    <td data-th="Publisher">@x.Publisher</td>
-                    <td data-th="ISBN">@x.ISBN</td>
-                    <td data-th="Classification">@x.Classification</td>
-                    <td data-th="Category">@x.Category</td>
-                    <td data-th="Price">$@x.Price</td>
-                    <td data-th="PageNum">@x.PageNum</td>
-                </tr>
-            }
+        @foreach (var x in Model.Books)
+        {     
+            <partial name="ProjectSummary.cshtml" model="x"/>
+        }
+        
 
-
-        </table>
+</table>
 
 
         <div class="btn btn btn-link">
@@ -67,8 +58,6 @@
             <vc:navigation-menu />
         </div>
       
-            @* haha I am so dumb I hate myself *@
-            @*<patrial name="ProjectSummary"></patrial>*@
       
     </div>
 </div>
