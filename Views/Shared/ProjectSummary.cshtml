@@ -18,20 +18,29 @@ I know the video showed how to do it with the model, but I kept having bugs, but
     <td data-th="Category">@Model.Category</td>
     <td data-th="Price">$@Model.Price</td>
     <td data-th="PageNum">@Model.PageNum</td>
-    <td data-th="Cart">
+    <td>
+        <form id="@Model.BookID" asp-page="/Cart" method="post">
+            <input type="hidden" asp-for="BookID" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+            <span>
+               
+                <button type="submit" class="btn">Add to Cart</button>
+
+            </span>
+        </form>
     </td>
 </tr>
 
 
-<form id="@Model.BookID" asp-page="/Cart" method="post">
+@*<form id="@Model.BookID" asp-page="/Cart" method="post">
     <input type="hidden" asp-for="BookID" />
     <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
     <span>
-        @Model.Category
+        @Model.Categ
         <button type="submit" class="btn">Add to Cart</button>
         
     </span>
-</form>
+</form>*@
 
 @*class="btn-success btn-sm pull-right" style="float:right"*@
 

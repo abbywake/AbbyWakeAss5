@@ -24,7 +24,7 @@ namespace AbbyWakeAss5.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(string category ,int page = 1)
+        public IActionResult Index(string category ,int pageNum = 1)
         {
 
             //return all of this information
@@ -36,14 +36,14 @@ namespace AbbyWakeAss5.Controllers
                     //ordering by the Books
                     .OrderBy(b => b.BookID)
                     //how it will be doing it 
-                    .Skip((page - 1) * PageSize)
+                    .Skip((pageNum - 1) * PageSize)
                     //how many it will return 
                     .Take(PageSize),
                     
 
                     PagingInfo = new PagingInfo
                     {
-                        CurrentPage = page,
+                        CurrentPage = pageNum,
                         ItemsPerPage = PageSize,
                         TotalNumItems = category == null ? _repository.Books.Count() :
                         _repository.Books.Where(x => x.Category == category).Count()

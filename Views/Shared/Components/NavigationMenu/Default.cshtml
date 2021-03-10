@@ -1,10 +1,25 @@
 ﻿@model IEnumerable<string>
 @* This is making it so I can link and do all of the buttons! Super uper cool *@
 <a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home" asp-route-category="">Home</a>
+<head>
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+</head>
 
 @foreach (string category in Model)
 {
     <a class="btn btn-block btn-outline-secondary
        @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
-       asp-action="Index" asp-controller="Home" asp-route-category="@category" asp-route-page="1">@category</a>
+       asp-action="Index" asp-controller="Home" asp-route-category="@category" asp-route-pageNum="1">@category</a>
 }
+
+
+<div class="bg-dark text-white p-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col navbar-brand">SPORTS STORE</div>
+            <div class="col-6 text-right">
+                <vc:cart-summary />
+            </div>
+        </div>
+    </div>
+</div>

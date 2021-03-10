@@ -49,7 +49,7 @@ namespace AbbyWakeAss5.Infrastructure
 
             for(int i = 1; i <= PageModel.TotalPages; i++)
             {
-                PageUrlValues["page"] = i;
+                PageUrlValues["pageNum"] = i;
 
                 TagBuilder tag = new TagBuilder("a");
                 //PageUrlValues stores how many are in there from the filtered

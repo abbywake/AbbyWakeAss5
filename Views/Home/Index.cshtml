@@ -35,15 +35,24 @@
                 <th>Cart</th>
             </tr>
 
-            
 
-        @foreach (var x in Model.Books)
-        {     
-            <partial name="ProjectSummary.cshtml" model="x"/>
-        }
-        
 
-</table>
+            @foreach (var x in Model.Books)
+            {
+                <partial name="ProjectSummary.cshtml" model="x" />
+                @*<form id="@x.BookID" asp-page="/Cart" method="post">
+                    <input type="hidden" />
+                    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+
+                    <button type="submit" class="btn">@x.Title</button>
+
+
+                </form>*@
+            }
+
+
+        </table>
 
 
         <div class="btn btn btn-link">

@@ -1,6 +1,7 @@
 using AbbyWakeAss5.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -39,6 +40,9 @@ namespace AbbyWakeAss5
             services.AddDistributedMemoryCache();
 
             services.AddSession();
+
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,20 +70,20 @@ namespace AbbyWakeAss5
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("catPage",
-                    "Books/{category}/{page:int}",
+                    "Books/{category}/{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute("page",
-                    "Books/P{page:int}",
+                    "Books/P{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapControllerRoute("category", 
                     "{category}",
-                    new { Controller = "Home", action = "Index", page=1 });
+                    new { Controller = "Home", action = "Index", pageNum=1 });
 
                 endpoints.MapControllerRoute(
                     "pagination",
-                    "P{page}",
+                    "P{pageNum}",
                     new { Controller = "Home", action = "Index" });
                 
                 endpoints.MapDefaultControllerRoute();

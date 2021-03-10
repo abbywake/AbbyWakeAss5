@@ -1,14 +1,34 @@
 ﻿
 @model ProjectListViewModel
 <head>
+
+
     <link runat="server" rel="shortcut icon" href="img/book.png" type="image/x-icon" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AbbyWakeAss5</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
+    
+        <div class="bg-dark text-white p-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col navbar-brand">Books</div>
+                    <div class="col-6 text-right">
+                        <vc:cart-summary />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
     @*<div class="col-1">
             <vc:navigation-menu />
         </div>*@
@@ -19,8 +39,10 @@
 
     </div>
     @* having it load into everything *@
-   
-    
+
+
+
+
 
 </body>
 
